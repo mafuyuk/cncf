@@ -14,4 +14,5 @@ $ brew install kubernetes-cli
 ## create cluster for minikube
 ```bash
 $ minikube start --kubernetes-version=v1.11.3
+$ kubectl get node
 ```
