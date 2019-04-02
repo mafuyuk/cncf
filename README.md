@@ -2,6 +2,7 @@
 
 ## minikube install
 ```bash
+$ brew cask install virtualbox
 $ brew cask install minikube
 ```
 
