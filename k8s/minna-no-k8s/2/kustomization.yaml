@@ -1,0 +1,5 @@
+commonLabels:
+  hello: world
+resources:
+- service.yaml
+- deployment.yaml
