@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: helloworld-v2
+spec:
+  selector:
+    matchLabels:
+      run: helloworld-v2
+  template:
+    metadata:
+      labels:
+        run: helloworld-v2
+        app: helloworld
+        version: v2
+    spec:
+      containers:
+        - image: istio/examples-helloworld-v2
+          name: helloworld-v1
