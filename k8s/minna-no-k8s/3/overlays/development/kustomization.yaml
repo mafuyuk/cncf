@@ -1,0 +1,7 @@
+commonLabels:
+  variant: dev
+bases:
+- ../../base
+patches:
+- replica_count.yaml
+- cpu_count.yaml
