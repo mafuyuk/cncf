@@ -11,13 +11,9 @@ $ kubectl get pods -n istio-system
 
 ### 立ち上げ
 ```bash
-$ kubectl apply -f helloworld-v1.yaml
-$ kubectl apply -f helloworld-v2.yaml
+$ kubectl apply -f .
 $ kubectl get pod
-
-$ kubectl apply -f service.yaml
 $ kubectl get service
 
-$ kubectl apply -f virtualservice.yaml
-$ kubectl apply -f app-gateway.yaml
+$ kubectl delete -f .
 ```
