@@ -1,0 +1,66 @@
+package main
+
+import (
+	"fmt"
+	"os"
+	"os/exec"
+	"runtime"
+)
+
+func main() {
+	switch os.Args[1] {
+	case "run":
+		parent()
+	case "child":
+		child()
+	default:
+		panic("wat should I do")
+	}
+}
+
+func parent() {
+	var execCmd string
+	switch runtime.GOOS {
+	case "windows":
+		fmt.Println("running on Windows.")
+		return
+	case "darwin":
+		fmt.Println("running on Mac OSX.")
+		execCmd = NSGetExecutablePath()
+	case "linux":
+		fmt.Println("running on Linux.")
+		const selfCMD = "/proc/self/exe"
+		execCmd = selfCMD
+	case "freebsd":
+		fmt.Println("running on BSD.")
+		return
+	default:
+		fmt.Println("running on Other OS.", runtime.GOOS)
+		return
+	}
+	fmt.Println(execCmd)
+
+	cmd := exec.Command(execCmd, append([]string{"child"}, os.Args[2:]...)...)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	fmt.Println("Run parent")
+	if err := cmd.Run(); err != nil {
+		fmt.Println("ERROR parent", err)
+		os.Exit(1)
+	}
+}
+
+func child() {
+	cmd := exec.Command(os.Args[2], os.Args[3:]...)
+	cmd.Stdin = os.Stdin
+	cmd.Stdout = os.Stdout
+	cmd.Stderr = os.Stderr
+
+	fmt.Println("Run child")
+	if err := cmd.Run(); err != nil {
+		fmt.Println("ERROR child", err)
+		os.Exit(1)
+	}
+}
