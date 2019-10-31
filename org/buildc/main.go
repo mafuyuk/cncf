@@ -27,24 +27,23 @@ func main() {
 	}
 }
 
+const LINUX_EXE_CMD = "/proc/self/exe"
+
 func parent() {
 	var execCmd string
 	switch runtime.GOOS {
 	case "windows":
-		fmt.Println("running on Windows.")
+		fmt.Println("not running on Windows.")
 		return
 	case "darwin":
-		fmt.Println("running on Mac OSX.")
 		execCmd = NSGetExecutablePath()
 	case "linux":
-		fmt.Println("running on Linux.")
-		const selfCMD = "/proc/self/exe"
-		execCmd = selfCMD
+		execCmd = LINUX_EXE_CMD
 	case "freebsd":
-		fmt.Println("running on BSD.")
+		fmt.Println("not running on BSD.")
 		return
 	default:
-		fmt.Println("running on Other OS.", runtime.GOOS)
+		fmt.Println("not running on Other OS.", runtime.GOOS)
 		return
 	}
 
@@ -57,6 +56,7 @@ func parent() {
 		fmt.Println("ERROR parent", err)
 		os.Exit(1)
 	}
+	fmt.Println("Finish parent")
 }
 
 func child() {
@@ -69,6 +69,7 @@ func child() {
 		fmt.Println("ERROR child", err)
 		os.Exit(1)
 	}
+	fmt.Println("Finish child")
 }
 
 func displayPIDInfo() {
