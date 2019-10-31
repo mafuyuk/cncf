@@ -8,6 +8,11 @@ import (
 )
 
 func main() {
+	if len(os.Args) < 3 {
+		fmt.Println("lack of command args")
+		os.Exit(1)
+	}
+
 	switch os.Args[1] {
 	case "run":
 		parent()
