@@ -43,14 +43,12 @@ func parent() {
 		fmt.Println("running on Other OS.", runtime.GOOS)
 		return
 	}
-	fmt.Println(execCmd)
 
 	cmd := exec.Command(execCmd, append([]string{"child"}, os.Args[2:]...)...)
 	cmd.Stdin = os.Stdin
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	fmt.Println("Run parent")
 	if err := cmd.Run(); err != nil {
 		fmt.Println("ERROR parent", err)
 		os.Exit(1)
@@ -63,7 +61,6 @@ func child() {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 
-	fmt.Println("Run child")
 	if err := cmd.Run(); err != nil {
 		fmt.Println("ERROR child", err)
 		os.Exit(1)
