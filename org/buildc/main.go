@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"os"
 	"os/exec"
-	"runtime"
 
 	"github.com/mitchellh/go-ps"
 )
@@ -27,35 +26,12 @@ func main() {
 	}
 }
 
-const LINUX_EXE_CMD = "/proc/self/exe"
-
 func parent() {
-	var execCmd string
-	switch runtime.GOOS {
-	case "windows":
-		fmt.Println("not running on Windows.")
-		return
-	case "darwin":
-		execCmd = NSGetExecutablePath()
-	case "linux":
-		execCmd = LINUX_EXE_CMD
-	case "freebsd":
-		fmt.Println("not running on BSD.")
-		return
-	default:
-		fmt.Println("not running on Other OS.", runtime.GOOS)
-		return
-	}
-
-	cmd := exec.Command(execCmd, append([]string{"child"}, os.Args[2:]...)...)
-	cmd.Stdin = os.Stdin
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-
-	if err := cmd.Run(); err != nil {
+	if err := execCMD(append([]string{"child"}, os.Args[2:]...)...); err != nil {
 		fmt.Println("ERROR parent", err)
 		os.Exit(1)
 	}
+
 	fmt.Println("Finish parent")
 }
 
