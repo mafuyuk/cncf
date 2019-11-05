@@ -1,6 +1,7 @@
 # Mac
 ```bash
 $ go get github.com/mitchellh/go-ps
-$ make macos
-$ bin/buildc_macos run ls
+$ make all
+$ docker build -t buildc .
+$ docker run --privileged buildc
 ```
