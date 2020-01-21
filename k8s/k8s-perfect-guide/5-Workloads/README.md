@@ -1,0 +1,9 @@
+# Workloads
+1. 概要
+2. Pod
+3. ReplicaSet
+4. Deployment
+5. DaemonSet
+6. StatefulSet
+7. Job
+8. CronJob
