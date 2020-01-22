@@ -25,5 +25,6 @@ $ kubectl run --image=centos6 --restart=Never --rm -i testpod \
 
 # 削除
 $ kubectl delete services sample-clusterip
+$ kubectl delete services sample-clusterip-multi
 $ kubectl delete deployments sample-deployment
-
+$ kubectl delete pods testpod 
