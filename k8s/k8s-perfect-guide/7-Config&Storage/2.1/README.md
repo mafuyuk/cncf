@@ -7,7 +7,15 @@ $ kubectl delete pods sample-env
 ```
 
 
-# 追加
+# Podの情報から値を環境変数に乗せる
+対象の記述
+```bash
+        - name: K8S_NODE
+          valueFrom:
+            filedRef:
+              filedPath: spec.nodeName
+```
+コマンド
 ```bash
 $ kubectl apply -f ./
 
@@ -15,19 +23,27 @@ $ kubectl apply -f ./
 $ kubectl get pods sample-env -o yaml
 ※ 抜粋
   nodeName: docker-desktop
-
+$ kubectl exec -it sample-env env | grep K8S_NODE
+K8S_NODE=docker-desktop
 $ kubectl delete pods sample-env
+```
 
-
-# specの値を環境変数に乗せる
-$ vim sample-env.yaml
+# コンテナの情報から値を環境変数に乗せる
+対象の記述
+```bash
         - name: K8S_NODE
           valueFrom:
             filedRef:
               filedPath: spec.nodeName
-を追加
+```
+コマンド
+```bash
 $ kubectl apply -f ./
-$ kubectl exec -it sample-env env | grep K8S_NODE
-K8S_NODE=docker-desktop
+
+$ kubectl exec -it sample-env env | grep CPU_REQUESTS
+CPU_REQUESTS=0
+$ kubectl exec -it sample-env env | grep CPU_LIMITS
+CPU_LIMITS=4
+
 $ kubectl delete pods sample-env
 ```

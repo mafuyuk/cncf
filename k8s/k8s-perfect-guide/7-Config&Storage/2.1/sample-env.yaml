@@ -17,3 +17,13 @@ spec:
           valueFrom:
             fieldRef:
               fieldPath: spec.nodeName
+        - name: CPU_REQUESTS
+          valueFrom:
+             resourceFieldRef:
+              containerName: nginx-container
+              resource: requests.cpu
+        - name: CPU_LIMITS
+          valueFrom:
+            resourceFieldRef:
+              containerName: nginx-container
+              resource: limits.cpu
