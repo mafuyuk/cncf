@@ -40,9 +40,8 @@ $ kubectl delete pods sample-env
 ```bash
 $ kubectl apply -f ./
 
-$ kubectl exec -it sample-env env | grep CPU_REQUESTS
+$ kubectl exec -it sample-env env | grep CPU
 CPU_REQUESTS=0
-$ kubectl exec -it sample-env env | grep CPU_LIMITS
 CPU_LIMITS=4
 
 $ kubectl delete pods sample-env
