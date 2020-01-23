@@ -13,3 +13,7 @@ spec:
           value: "100"
         - name: TZ
           value: Asia/Tokyo
+        - name: K8S_NODE
+          valueFrom:
+            fieldRef:
+              fieldPath: spec.nodeName
