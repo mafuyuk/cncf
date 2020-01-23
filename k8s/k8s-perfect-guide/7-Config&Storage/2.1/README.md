@@ -46,3 +46,11 @@ CPU_LIMITS=4
 
 $ kubectl delete pods sample-env
 ```
+
+# 環境変数をマニフェストで展開する
+```bash
+$ kubectl apply -f ./
+$ kubectl logs sample-env
+100
+$ kubectl delete pods sample-env
+```

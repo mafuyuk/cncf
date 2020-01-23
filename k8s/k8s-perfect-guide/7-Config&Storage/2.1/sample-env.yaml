@@ -8,6 +8,8 @@ spec:
   containers:
     - name: nginx-container
       image: nginx:1.12
+      command: ["echo"]
+      args: ["$(MAX_CONNECTION)"]
       env:
         - name: MAX_CONNECTION
           value: "100"
