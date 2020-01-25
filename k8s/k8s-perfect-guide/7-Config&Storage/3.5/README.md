@@ -27,3 +27,17 @@ $ kubectl exec -it sample-secret-single-volume cat /config/username.txt
 $ kubectl delete pods sample-secret-single-volume
 $ kubectl delete secrets sample-db-auth
 ```
+
+## Secretの全てのキーをVolumeマウントするPod
+```bash
+$ kubectl apply \
+  -f ./sample-db-auth.yaml \
+  -f ./sample-secret-multi-volume.yaml
+
+$ kubectl get secrets sample-db-auth
+$ kubectl get pods sample-secret-multi-volume
+$ kubectl exec -it sample-secret-multi-volume ls /config
+
+$ kubectl delete pods sample-secret-multi-volume
+$ kubectl delete secrets sample-db-auth
+```
