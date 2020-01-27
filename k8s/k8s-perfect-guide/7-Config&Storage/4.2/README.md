@@ -41,3 +41,17 @@ pid /run/nginx.pid;
 $ kubectl delete pods sample-configmap-single-volume
 $ kubectl delete configmaps sample-configmap
 ```
+
+# ConfigMapの全てのキーをVolumeマウントするPod
+```bash
+$ kubectl apply \
+  -f ./sample-configmap.yaml \
+  -f ./sample-configmap-multi-volume.yaml
+$ kubectl get pods sample-configmap-multi-volume
+
+$ kubectl exec -it sample-configmap-multi-volume ls /config
+connection.max  connection.min  nginx.conf  sample.properties  thread
+
+$ kubectl delete pods sample-configmap-multi-volume
+$ kubectl delete configmaps sample-configmap
+```
