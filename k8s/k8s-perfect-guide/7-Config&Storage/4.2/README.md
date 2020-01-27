@@ -24,3 +24,20 @@ $ kubectl exec -it sample-configmap-multi-env env
 $ kubectl delete pods sample-configmap-multi-env
 $ kubectl delete configmaps sample-configmap
 ```
+
+# ConfigMapの１つのキーをVolumeマウントするPod
+```bash
+$ kubectl apply \
+  -f ./sample-configmap.yaml \
+  -f ./sample-configmap-single-volume.yaml
+$ kubectl get pods sample-configmap-single-volume
+
+$ kubectl exec -it sample-configmap-single-volume cat /config/nginx-sample.conf
+user nginx;
+worker_processes auto;
+error_log /var/log/nginx/error.log;
+pid /run/nginx.pid;
+
+$ kubectl delete pods sample-configmap-single-volume
+$ kubectl delete configmaps sample-configmap
+```
