@@ -1,11 +1,16 @@
-
 ```bash
+# EKS Clusterの作成
 $ eksctl create cluster -f cluster.yaml
 
 $ aws eks update-kubeconfig --name basic-cluster
 $ kubectl apply -f manifest/flux
 
+# Fluxのチャートの追加
 $ helm repo add fluxcd https://charts.fluxcd.io
+$ helm search repo fluxcd
+NAME                    CHART VERSION   APP VERSION     DESCRIPTION                                       
+fluxcd/flux             1.1.0           1.17.1          Flux is a tool that automatically ensures that ...
+fluxcd/helm-operator    0.6.0           1.0.0-rc8       Flux Helm Operator is a CRD controller for decl...
  
 $ helm upgrade -i flux \
   --set helmOperator.create=true \
