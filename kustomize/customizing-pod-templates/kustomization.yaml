@@ -1,0 +1,6 @@
+bases:
+  - ./base
+images:
+  - name: nginx-pod
+    newTag: "1.15"
+    newName: nginx-pod-2
