@@ -16,3 +16,14 @@ spec:
       containers:
         - name: nginx
           image: nginx-pod
+          env:
+            - name: SPECIAL_LEVEL_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: special-config
+                  key: SPECIAL_LEVEL
+            - name: SPECIAL_TYPE_KEY
+              valueFrom:
+                configMapKeyRef:
+                  name: special-config
+                  key: SPECIAL_TYPE

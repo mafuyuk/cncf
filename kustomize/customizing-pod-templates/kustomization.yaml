@@ -4,3 +4,9 @@ images:
   - name: nginx-pod
     newTag: "1.15"
     newName: nginx-pod-2
+configMapGenerator:
+  - name: special-config
+    behavior: merge
+    literals:
+      - SPECIAL_LEVEL=very
+      - SPECIAL_TYPE=charm
