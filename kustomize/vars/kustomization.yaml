@@ -1,0 +1,12 @@
+namePrefix: "test-"
+vars:
+  - name: BACKEND_SERVICE_NAME
+    objref:
+      kind: Service
+      name: backend-service
+      apiVersion: v1
+    fieldref:
+      fieldpath: metadata.name
+resources:
+  - deployment.yaml
+  - service.yaml
