@@ -1,0 +1,20 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: alb-ingress-controller
+spec:
+  template:
+    spec:
+      containers:
+        - name: alb-ingress-controller
+          args:
+            - --ingress-class=alb
+            - --cluster-name=demo
+            - --aws-vpc-id=vpc-XXXXXXXXX
+            - --aws-region=ap-northeast-1
+          env:
+            - name: AWS_ACCESS_KEY_ID
+              value: XXXXXXXXXXX
+            - name: AWS_SECRET_ACCESS_KEY
+              value: XXXXXXXXXXXXX

@@ -1,0 +1,11 @@
+---
+bases:
+  - ../bases/aws-alb-ingress-controller
+patches:
+  - patch/patch-alb-ingress-controller.yaml
+  - patch/patch-rbac-role.yaml
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml

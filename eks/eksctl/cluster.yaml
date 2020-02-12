@@ -11,3 +11,7 @@ fargateProfiles:
     selectors:
       - namespace: default
       - namespace: kube-system
+
+cloudWatch:
+  clusterLogging:
+    enableTypes: ["*"]
