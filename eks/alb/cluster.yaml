@@ -21,6 +21,9 @@ fargateProfiles:
     selectors:
       - namespace: default
       - namespace: kube-system
+  - name: fp-dev
+    selectors:
+      - namespace: dev
 
 cloudWatch:
   clusterLogging:
