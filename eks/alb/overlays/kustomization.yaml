@@ -1,7 +1,7 @@
 ---
 bases:
   - ../bases/aws-alb-ingress-controller
-patches:
+patchesStrategicMerge:
   - patch/patch-alb-ingress-controller.yaml
   - patch/patch-rbac-role.yaml
 resources:
