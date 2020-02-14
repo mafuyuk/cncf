@@ -1,9 +1,10 @@
 ---
 bases:
+  - ../bases/aws-auth
   - ../bases/aws-alb-ingress-controller
 patchesStrategicMerge:
-  - patch/patch-alb-ingress-controller.yaml
-  - patch/patch-rbac-role.yaml
+  - patch/patch-aws-auth.yaml
+  - patch/patch-aws-alb-ingress-controller.yaml
 resources:
   - namespace.yaml
   - configmap.yaml
