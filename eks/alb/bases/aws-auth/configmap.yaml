@@ -6,9 +6,14 @@ metadata:
   namespace: kube-system
 data:
   mapRoles: |
-    - groups:
+    - rolearn: arn:aws:iam::{{AccountID}}:role/FargatePodExecutionRole
+      username: system:node:{{SessionName}}
+      groups:
       - system:bootstrappers
       - system:nodes
       - system:node-proxier
-      rolearn: arn:aws:iam::{{AccountID}}:role/FargatePodExecutionRole
-      username: system:node:{{SessionName}}
+  mapUsers: |
+    - userarn: arn:aws:iam::{{AccountID}}:user/someusername
+      username: someusername
+      groups:
+      - system:masters
