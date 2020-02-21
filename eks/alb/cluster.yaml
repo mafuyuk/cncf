@@ -10,8 +10,13 @@ iam:
   withOIDC: true
   serviceAccounts:
     - metadata:
+        name: alb-ingress-controller
+        namespace: kube-system
+      attachPolicyARNs:
+        - "arn:aws:iam::XXXXXXXXXXXX:policy/AWSALBIngressController"
+    - metadata:
         name: s3-reader
-        namespace: backend-apps
+        namespace: dev
         labels: {aws-usage: "application"}
       attachPolicyARNs:
         - "arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess"
