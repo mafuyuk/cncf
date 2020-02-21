@@ -6,7 +6,7 @@ metadata:
   namespace: kube-system
 data:
   mapRoles: |
-    - rolearn: arn:aws:iam::{{AccountID}}:role/FargatePodExecutionRole
+    - rolearn: arn:aws:iam::XXXXXXXXXXXX:role/FargatePodExecutionRole
       username: system:node:{{SessionName}}
       groups:
       - system:bootstrappers
