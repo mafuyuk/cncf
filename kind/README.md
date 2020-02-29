@@ -19,17 +19,18 @@ $ kind create cluster \
 
 $ kind get clusters
 dev-cluster
-$ kctx 
+$ kctx
+kind-dev-cluster
 ```
 
 ## クラスタ削除
 ```bash
-kind delete cluster \
+$ kind delete cluster \
   --name dev-cluster
 ```
 ## ノードコンテナにアクセス
 ```bash
-docker exec -it kind-control-plane bash
+$ docker exec -it dev-cluster-control-plane bash
 ```
 
 # 参考リンク
