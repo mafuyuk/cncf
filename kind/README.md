@@ -33,6 +33,13 @@ $ kind delete cluster \
 $ docker exec -it dev-cluster-control-plane bash
 ```
 
+##
+```bash
+$ k create deploy --image=amaya382/k8s-debugkit debugkit
+$ k expose deploy debugkit --port=80 --type=NodePort
+$ k edit svc debugkit # spec.ports[0].nodePortを31380に更新
+```
+
 # 参考リンク
 - https://kind.sigs.k8s.io/
 - https://kind.sigs.k8s.io/docs/user/quick-start/#setting-kubernetes-version
