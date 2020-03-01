@@ -1,7 +1,7 @@
 FROM python:3.7-alpine
 
 WORKDIR /opt/app-a
-COPY . /opt/app-a
+COPY .. /opt/app-a
 
 RUN apk add --no-cache --virtual .deps \
     gcc make musl-dev && \
