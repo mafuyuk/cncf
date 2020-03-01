@@ -30,7 +30,7 @@ $ k get po -o wide
 NAME                              READY   STATUS    RESTARTS   AGE     IP           NODE                 NOMINATED NODE   READINESS GATES
 debugkit-798cb977b-xp9pj          1/1     Running   0          79m     10.244.1.2   dev-cluster-worker   <none>           <none>
 example-server-569dd46b97-9mtzw   1/1     Running   0          2m18s   10.244.1.5   dev-cluster-worker   <none>           <none>
-$ curl example-server:8080                                                                                                          [/Users/mafuyuk/repo/src/github.com/mafuyuk/cncf/kind]
+$ curl example-server:8080
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN"><html>
 <title>Directory listing for /</title>
 <body>
