@@ -28,4 +28,18 @@ Starting to serve on 127.0.0.1:8001
 $ curl 127.0.0.1:8001/api/v1/namespaces/default/services/nginx-service/proxy/
 
 $ kill -9 65740
+
+$ curl 127.0.0.1:8001/api/v1/namespaces/argocd/services/argocd-server/proxy/
+```
+
+## Argocd接続
+```sh
+$ kubectl patch svc argocd-server -n argocd -p '{"spec": {"type": "LoadBalancer"}}'
+$ kubectl port-forward svc/argocd-server -n argocd 8081:443
+
+$ open 127.0.0.1:8081
+ID: admin
+Password: ↓の結果
+
+$ kubectl get pods -n argocd -l app.kubernetes.io/name=argocd-server -o name | cut -d'/' -f 2
 ```
