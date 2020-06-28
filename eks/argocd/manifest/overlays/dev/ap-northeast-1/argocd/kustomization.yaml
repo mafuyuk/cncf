@@ -1,0 +1,9 @@
+---
+namespace: argocd
+
+bases:
+  - ../../../../bases/argocd
+
+resources:
+  - namespace.yaml
+  - application.yaml
