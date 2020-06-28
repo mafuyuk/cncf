@@ -1,0 +1,2 @@
+# Argo
+- https://github.com/argoproj/argo-cd/releases
