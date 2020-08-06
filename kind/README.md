@@ -5,7 +5,7 @@
 $ kind create cluster \
   --name dev-cluster \
   --loglevel debug \
-  --image kindest/node:v1.14.3
+  --image kindest/node:v1.18.2
 $ kind get clusters
 dev-cluster
 $ kctx 
