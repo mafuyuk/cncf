@@ -1,0 +1,19 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: cron
+spec:
+  schedule: "*/1 * * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: cron-serviceaccount
+          containers:
+            - name: sleep
+              image: alpine
+              command: ["sh", "-c"]
+              args:
+                - |
+                  sleep 5
+          restartPolicy: Never
