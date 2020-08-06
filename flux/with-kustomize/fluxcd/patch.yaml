@@ -16,4 +16,4 @@ spec:
             - --git-path=staging
             - --git-user=mafuyuk
             - --git-email=mafuyuk.m@gmail.com
-            - --git-url=git@github.com:mafuyuk/demo-k8s-manifest
+            - --git-url=git@github.com:mfykmn/demo-k8s-manifest
