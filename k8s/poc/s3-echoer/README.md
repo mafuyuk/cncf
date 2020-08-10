@@ -1,16 +1,16 @@
 ### テスト用のクラスタ生成
 ```bash
-$ kind create cluster --name cronjob-s3 --image kindest/node:v1.18.2
+$ kind create cluster --name s3-echoer --image kindest/node:v1.18.2
 $ kind get clusters
-cronjpb-s3
+s3-echoer
 
 $ kctx
-Switched to context "cronjob-s3".
+Switched to context "s3-echoer".
 ```
 
 ### 構築
 ```bash
-$ kustomize build k8s/poc/cronjob-s3 | kubectl apply -f -
+$ kustomize build k8s/poc/s3-echoer | kubectl apply -f -
 $ k get po -w
 ```
 
@@ -22,5 +22,5 @@ $ k describe pod -n kube-system -l component=kube-apiserver | grep authorization
 
 ### Cleanup
 ```bash
-$ kind delete cluster --name cronjob-s3
+$ kind delete cluster --name s3-echoer
 ```

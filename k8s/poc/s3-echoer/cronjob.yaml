@@ -1,14 +1,14 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: cron
+  name: s3-echoer-cronjob
 spec:
   schedule: "*/1 * * * *"
   jobTemplate:
     spec:
       template:
         spec:
-          serviceAccountName: cron-serviceaccount
+          serviceAccountName: s3-echoer-serviceaccount
           containers:
             - name: sleep
               image: alpine
