@@ -24,3 +24,6 @@ $ k describe pod -n kube-system -l component=kube-apiserver | grep authorization
 ```bash
 $ kind delete cluster --name s3-echoer
 ```
+
+# 参考リンク
+- https://aws.amazon.com/jp/blogs/news/introducing-fine-grained-iam-roles-service-accounts/
