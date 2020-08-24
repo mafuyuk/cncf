@@ -26,4 +26,5 @@ $ kind delete cluster --name s3-echoer
 ```
 
 # 参考リンク
+- https://katainaka0503.hatenablog.com/entry/2019/12/07/091737
 - https://aws.amazon.com/jp/blogs/news/introducing-fine-grained-iam-roles-service-accounts/
